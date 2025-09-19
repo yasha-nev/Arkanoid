@@ -1,9 +1,10 @@
 #include "MainScreen.hpp"
 
-#include <Player.hpp>
+#include "Player.hpp"
 
 Player::Player(int x, int y):
-    DrawableObject(PLAYER_DEFAULT_WIDTH, PLAYER_DEFAULT_HEIGHT, x, y, '-') {
+    DrawableObject(PLAYER_DEFAULT_WIDTH, PLAYER_DEFAULT_HEIGHT, x, y, '-'), 
+    CollisionObject(PLAYER_DEFAULT_WIDTH, PLAYER_DEFAULT_HEIGHT, x, y) {
 }
 
 void Player::moveRight() {
@@ -30,4 +31,7 @@ void Player::onKeyPressed(int keyCode) {
             break;
         }
     }
+}
+
+void Player::handleCollision(const CollisionObject * object) {
 }

@@ -17,6 +17,8 @@ set(SRCS
     src/Enemy.cpp
     src/InputHandler.cpp
     src/Wall.cpp
+    src/Ball.cpp
+    src/CollisionManager.cpp
 )
 
 set(HEADERS
@@ -28,6 +30,10 @@ set(HEADERS
     include/InputHandler.hpp
     include/IInputObserver.hpp
     include/Wall.hpp
+    include/CollisionObject.hpp
+    include/Ball.hpp
+    include/CollisionObject.hpp
+    include/CollisionManager.hpp
 )
 
 
