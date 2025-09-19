@@ -1,19 +1,23 @@
-#ifndef DRAWABLEOBJECT_hpp
-#define DRAWABLEOBJECT_hpp
+#ifndef BASEOBJECT_hpp
+#define BASEOBJECT_hpp
 
 #include <utility>
 
-class DrawableObject {
+class BaseObject {
 public:
-    DrawableObject();
+    BaseObject();
 
-    DrawableObject(int width, int height, int x, int y, char drawSymbol);
+    BaseObject(int width, int height, int x, int y, char drawSymbol);
+
+    virtual ~BaseObject() = default;
 
     std::pair<int, int>* getSize();
 
     std::pair<int, int>* getPosition();
 
     char getDrawSymbol();
+
+    bool getDeadStatus();
 
     void setPosition(int x, int y);
 
@@ -22,6 +26,7 @@ public:
     void setDrawSymbol(char drawSymbol);
 
 protected:
+    bool m_isDead;
     std::pair<int, int> m_size;
     std::pair<int, int> m_position;
     char m_drawSymbol;

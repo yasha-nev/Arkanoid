@@ -1,9 +1,8 @@
 #ifndef MAINSCREEN_hpp
 #define MAINSCREEN_hpp
 
-#include "DrawableObject.hpp"
+#include "BaseObject.hpp"
 
-#include <algorithm>
 #include <list>
 #include <memory>
 #include <termios.h>
@@ -22,18 +21,18 @@ public:
 
     void update();
 
-    void addDrawableObject(const std::shared_ptr<DrawableObject>& object);
+    void addBaseObject(const std::shared_ptr<BaseObject>& object);
 
-    void removeDrawableObject(const std::shared_ptr<DrawableObject>& object);
+    void removeBaseObject(const std::shared_ptr<BaseObject>& object);
 
     std::pair<int, int> getScreenSize();
 
 private:
-    void drawObject(DrawableObject* object);
+    void drawObject(BaseObject* object);
 
     struct termios oldt;
 
-    std::list<std::shared_ptr<DrawableObject>> m_objects;
+    std::list<std::shared_ptr<BaseObject>> m_objects;
 
     std::vector<char> m_map;
 

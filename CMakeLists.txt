@@ -12,19 +12,20 @@ include_directories(
 set(SRCS
     src/App.cpp
     src/MainScreen.cpp
-    src/DrawableObject.cpp
+    src/BaseObject.cpp
     src/Player.cpp
     src/Enemy.cpp
     src/InputHandler.cpp
     src/Wall.cpp
     src/Ball.cpp
+    src/CollisionObject.cpp
     src/CollisionManager.cpp
 )
 
 set(HEADERS
     include/App.hpp
     include/MainScreen.hpp
-    include/DrawableObject.hpp
+    include/BaseObject.hpp
     include/Player.hpp
     include/Enemy.hpp
     include/InputHandler.hpp

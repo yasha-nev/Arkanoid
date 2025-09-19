@@ -1,8 +1,7 @@
 #include "Enemy.hpp"
 
 Enemy::Enemy(int x, int y, int level):
-    DrawableObject(ENEMY_WIDTH, ENEMY_HEIGHT, x, y, '0' + level),
-    CollisionObject(ENEMY_WIDTH, ENEMY_HEIGHT, x, y),
+    CollisionObject(ENEMY_WIDTH, ENEMY_HEIGHT, x, y, '0' + level),
     m_level(level) {
 }
 
@@ -14,17 +13,14 @@ void Enemy::makeHit() {
     m_level--;
 
     if(m_level == 0) {
-        destroy();
-
+        m_isDead = true;
+        setDrawSymbol(' ');
     } else {
         setDrawSymbol('0' + m_level);
     }
 }
 
-void Enemy::destroy() {
-    setDrawSymbol(' ');
-}
-
-void Enemy::handleCollision(const CollisionObject * object) {
+void Enemy::handleCollision(CollisionObject* object) {
+    (void) object;
     makeHit();
 }

@@ -21,7 +21,7 @@ void InputHandler::stop() {
 }
 
 static bool kbhit() {
-    struct timeval tv = { 0 };
+    struct timeval tv = { 0, 0 };
     fd_set readfds;
     FD_ZERO(&readfds);
     FD_SET(STDIN_FILENO, &readfds);

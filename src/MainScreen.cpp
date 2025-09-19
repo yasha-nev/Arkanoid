@@ -2,7 +2,6 @@
 
 #include <sys/ioctl.h>
 
-#include <iostream>
 #include <unistd.h>
 
 MainScreen::MainScreen() {
@@ -57,18 +56,18 @@ void MainScreen::update() {
     }
 }
 
-void MainScreen::addDrawableObject(const std::shared_ptr<DrawableObject>& object) {
+void MainScreen::addBaseObject(const std::shared_ptr<BaseObject>& object) {
     m_objects.push_back(object);
 }
 
-void MainScreen::removeDrawableObject(const std::shared_ptr<DrawableObject>& object) {
+void MainScreen::removeBaseObject(const std::shared_ptr<BaseObject>& object) {
     auto it = std::find(m_objects.begin(), m_objects.end(), object);
     if(it != m_objects.end()) {
         m_objects.erase(it);
     }
 }
 
-void MainScreen::drawObject(DrawableObject* object) {
+void MainScreen::drawObject(BaseObject* object) {
     auto position = object->getPosition();
     auto size = object->getSize();
     auto drawSymbol = object->getDrawSymbol();

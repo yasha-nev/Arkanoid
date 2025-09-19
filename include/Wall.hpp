@@ -1,16 +1,14 @@
 #ifndef WALL_hpp
 #define WALL_hpp
 
-#include "DrawableObject.hpp"
 #include "CollisionObject.hpp"
 
-class Wall: public DrawableObject, public CollisionObject {
+class Wall: public CollisionObject {
 public:
-
     Wall(int width, int height, int x, int y);
 
-    //CollisionObject method
-    void handleCollision(const CollisionObject * object) override;
+    // CollisionObject method
+    void handleCollision(CollisionObject* object) override;
 };
 
 #endif

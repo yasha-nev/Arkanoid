@@ -3,7 +3,6 @@
 
 #include "IInputObserver.hpp"
 
-#include <algorithm>
 #include <atomic>
 #include <cstdlib>
 #include <list>

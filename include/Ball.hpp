@@ -1,17 +1,15 @@
 #ifndef BALL_hpp
 #define BALL_hpp
 
-#include "DrawableObject.hpp"
-#include "IInputObserver.hpp"
 #include "CollisionObject.hpp"
+#include "IInputObserver.hpp"
 
 #include <mutex>
-#include <cmath>
+
 #define BALL_WIDTH 1
 #define BALL_HEIGHT 1
 
-
-class Ball: public DrawableObject, public CollisionObject, public IInputObserver {
+class Ball: public CollisionObject, public IInputObserver {
 public:
     Ball(int x, int y);
 
@@ -24,8 +22,8 @@ public:
     // IInputObserver method
     void onKeyPressed(int keyCode) override;
 
-    //CollisionObject method
-    void handleCollision(const CollisionObject *object) override;
+    // CollisionObject method
+    void handleCollision(CollisionObject* object) override;
 
 private:
     bool m_isMoved;
