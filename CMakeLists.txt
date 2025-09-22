@@ -11,30 +11,31 @@ include_directories(
 
 set(SRCS
     src/App.cpp
-    src/MainScreen.cpp
+    src/Ball.cpp
     src/BaseObject.cpp
-    src/Player.cpp
+    src/CollisionManager.cpp
+    src/CollisionObject.cpp
     src/Enemy.cpp
     src/InputHandler.cpp
+    src/MainScreen.cpp
+    src/ObjectFactory.cpp
+    src/Player.cpp
     src/Wall.cpp
-    src/Ball.cpp
-    src/CollisionObject.cpp
-    src/CollisionManager.cpp
 )
 
 set(HEADERS
     include/App.hpp
-    include/MainScreen.hpp
-    include/BaseObject.hpp
-    include/Player.hpp
-    include/Enemy.hpp
-    include/InputHandler.hpp
-    include/IInputObserver.hpp
-    include/Wall.hpp
-    include/CollisionObject.hpp
     include/Ball.hpp
-    include/CollisionObject.hpp
+    include/BaseObject.hpp
     include/CollisionManager.hpp
+    include/CollisionObject.hpp
+    include/Enemy.hpp
+    include/IInputObserver.hpp
+    include/InputHandler.hpp
+    include/MainScreen.hpp
+    include/ObjectFactory.hpp
+    include/Player.hpp
+    include/Wall.hpp
 )
 
 

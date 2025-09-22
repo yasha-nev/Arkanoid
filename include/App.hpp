@@ -16,17 +16,20 @@ class App {
 public:
     App();
 
-    void updateObject();
+    void updateEnemy();
 
     int run();
 
 private:
-    std::unique_ptr<CollisionManager> m_collisionManager;
-    std::unique_ptr<InputHandler> m_inputHandler;
+    CollisionManager m_collisionManager;
+    InputHandler m_inputHandler;
+    MainScreen m_mainScreen;
+
     std::shared_ptr<Player> m_player;
     std::shared_ptr<Ball> m_ball;
-    MainScreen m_mainScreen;
-    std::list<std::shared_ptr<CollisionObject>> m_gameElements;
+
+    std::list<std::shared_ptr<CollisionObject>> m_walls;
+    std::list<std::shared_ptr<CollisionObject>> m_enemy;
 };
 
 #endif
