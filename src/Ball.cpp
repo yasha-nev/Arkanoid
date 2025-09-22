@@ -1,5 +1,8 @@
 #include "Ball.hpp"
 
+#include <algorithm>
+#include <cmath>
+
 Ball::Ball(int x, int y):
     CollisionObject(BALL_WIDTH, BALL_HEIGHT, x, y, '@') {
 

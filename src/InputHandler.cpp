@@ -1,5 +1,7 @@
 #include "InputHandler.hpp"
 
+#include <algorithm>
+
 InputHandler::InputHandler() {
 }
 

@@ -1,4 +1,6 @@
-#include <CollisionManager.hpp>
+#include "CollisionManager.hpp"
+
+#include <algorithm>
 
 CollisionManager::~CollisionManager() {
     m_objects.clear();

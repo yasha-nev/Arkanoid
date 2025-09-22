@@ -11,13 +11,13 @@ App::App() {
     m_player = std::make_shared<Player>(size.second / 2, size.first - 2);
     m_ball = std::make_shared<Ball>(size.second / 2, size.first - 5);
 
-    m_inputHandler->subscribe(m_player);
-    m_collisionManager->addCollisionObject(m_player);
-    m_mainScreen.addBaseObject(m_player);
-
     m_inputHandler->subscribe(m_ball);
     m_collisionManager->addCollisionObject(m_ball);
     m_mainScreen.addBaseObject(m_ball);
+
+    m_inputHandler->subscribe(m_player);
+    m_collisionManager->addCollisionObject(m_player);
+    m_mainScreen.addBaseObject(m_player);
 
     auto wallUp = std::make_shared<Wall>(size.second - 1, 1, 0, 0);
     auto wallDown = std::make_shared<Wall>(size.second - 1, 1, 0, size.first - 1);

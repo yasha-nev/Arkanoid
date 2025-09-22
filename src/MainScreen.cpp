@@ -2,6 +2,8 @@
 
 #include <sys/ioctl.h>
 
+#include <algorithm>
+#include <cstdio>
 #include <unistd.h>
 
 MainScreen::MainScreen() {
