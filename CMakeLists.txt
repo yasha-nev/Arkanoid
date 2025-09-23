@@ -16,6 +16,7 @@ set(SRCS
     src/CollisionManager.cpp
     src/CollisionObject.cpp
     src/Enemy.cpp
+    src/GameStarter.cpp
     src/InputHandler.cpp
     src/MainScreen.cpp
     src/ObjectFactory.cpp
@@ -30,6 +31,7 @@ set(HEADERS
     include/CollisionManager.hpp
     include/CollisionObject.hpp
     include/Enemy.hpp
+    include/GameStarter.hpp
     include/IInputObserver.hpp
     include/InputHandler.hpp
     include/MainScreen.hpp

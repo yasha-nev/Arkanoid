@@ -28,6 +28,8 @@ public:
 
     void unsubscribe(const std::shared_ptr<IInputObserver>& observer);
 
+    void unsubscribeAll();
+
 private:
     std::mutex m_mtx;
 

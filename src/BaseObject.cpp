@@ -7,6 +7,7 @@ BaseObject::BaseObject() {
 }
 
 BaseObject::BaseObject(int width, int height, int x, int y, char drawSymbol) {
+    m_isDead = false;
     m_size = std::pair<int, int>(width, height);
     m_position = std::pair<int, int>(x, y);
     m_drawSymbol = drawSymbol;

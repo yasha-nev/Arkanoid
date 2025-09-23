@@ -19,14 +19,13 @@ std::shared_ptr<Player> ObjectFactory::createPlayer(int x, int y) {
 
 std::shared_ptr<Ball> ObjectFactory::createBall(int x, int y) {
     auto ball = std::make_shared<Ball>(x, y);
-    m_inputHandler.subscribe(ball);
     m_collisionManager.addCollisionObject(ball);
     m_mainScreen.addBaseObject(ball);
     return ball;
 }
 
-std::shared_ptr<Wall> ObjectFactory::createWall(int x1, int y1, int x2, int y2) {
-    auto wall = std::make_shared<Wall>(x1, y1, x2, y2);
+std::shared_ptr<Wall> ObjectFactory::createWall(int width, int height, int x, int y) {
+    auto wall = std::make_shared<Wall>(width, height, x, y);
     m_collisionManager.addCollisionObject(wall);
     m_mainScreen.addBaseObject(wall);
     return wall;

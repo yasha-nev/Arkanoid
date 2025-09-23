@@ -75,3 +75,7 @@ void InputHandler::unsubscribe(const std::shared_ptr<IInputObserver>& observer) 
         m_observers.erase(it);
     }
 }
+
+void InputHandler::unsubscribeAll() {
+    m_observers.clear();
+}

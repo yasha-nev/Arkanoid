@@ -34,18 +34,16 @@ void Ball::startMove() {
     m_isMoved = true;
 }
 
+void Ball::stopMove() {
+    m_isMoved = false;
+}
+
 void Ball::setDefaultPosition() {
     m_position.first = m_defaultPosX;
     m_position.second = m_defaultPosY;
 
     m_lastPosX = m_defaultPosX;
     m_lastPosY = m_defaultPosY - 1;
-}
-
-void Ball::onKeyPressed(int keyCode) {
-    if(keyCode == 'w') {
-        startMove();
-    }
 }
 
 void Ball::handleCollision(CollisionObject* obj) {

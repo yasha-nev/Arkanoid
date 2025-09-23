@@ -9,7 +9,7 @@
 #define BALL_WIDTH 1
 #define BALL_HEIGHT 1
 
-class Ball: public CollisionObject, public IInputObserver {
+class Ball: public CollisionObject {
 public:
     Ball(int x, int y);
 
@@ -17,10 +17,9 @@ public:
 
     void startMove();
 
-    void setDefaultPosition();
+    void stopMove();
 
-    // IInputObserver method
-    void onKeyPressed(int keyCode) override;
+    void setDefaultPosition();
 
     // CollisionObject method
     void handleCollision(CollisionObject* object) override;

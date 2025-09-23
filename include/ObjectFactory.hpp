@@ -22,7 +22,7 @@ public:
 
     std::shared_ptr<Ball> createBall(int x, int y);
 
-    std::shared_ptr<Wall> createWall(int x1, int y1, int x2, int y2);
+    std::shared_ptr<Wall> createWall(int width, int height, int x, int y);
 
     std::shared_ptr<Enemy> createEnemy(int x, int y, int speed);
 

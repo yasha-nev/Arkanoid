@@ -4,18 +4,63 @@
 #include "ObjectFactory.hpp"
 #include "Wall.hpp"
 
-App::App() {
+App::App():
+    m_livesCount(3),
+    m_isStarted(false) {
     ObjectFactory objectFactory(m_inputHandler, m_collisionManager, m_mainScreen);
+
+    auto m_gameStarter = std::make_shared<GameStarter>(*this);
+    m_inputHandler.subscribe(m_gameStarter);
 
     auto size = m_mainScreen.getScreenSize();
 
     m_ball = objectFactory.createBall(size.second / 2, size.first - 5);
     m_player = objectFactory.createPlayer(size.second / 2, size.first - 2);
 
-    m_walls.push_back(objectFactory.createWall(size.second - 1, 1, 0, 0));              // wall Up
-    m_walls.push_back(objectFactory.createWall(size.second - 1, 1, 0, size.first - 1)); // wall Down
-    m_walls.push_back(objectFactory.createWall(1, size.first - 1, 0, 0)); // wall Right
+    m_gameOverLine = objectFactory.createWall(size.second - 1, 1, 0, size.first - 1);
+
+    m_walls.push_back(objectFactory.createWall(size.second - 1, 1, 0, 0)); // wall Up
+    m_walls.push_back(objectFactory.createWall(1, size.first - 1, 0, 0));  // wall Right
     m_walls.push_back(objectFactory.createWall(1, size.first - 1, size.second - 1, 0)); // wall Left
+
+    createEnemy();
+}
+
+void App::startGame() {
+    if(m_isStarted) {
+        return;
+    }
+
+    m_ball->stopMove();
+    m_ball->setDefaultPosition();
+
+    m_livesCount = 1;
+
+    m_ball->startMove();
+
+    m_isStarted = true;
+}
+
+void App::stopGame() {
+    if(!m_isStarted) {
+        return;
+    }
+
+    m_ball->stopMove();
+
+    m_ball->setDefaultPosition();
+
+    clearEnemy();
+
+    createEnemy();
+
+    m_isStarted = false;
+}
+
+void App::createEnemy() {
+    ObjectFactory objectFactory(m_inputHandler, m_collisionManager, m_mainScreen);
+
+    auto size = m_mainScreen.getScreenSize();
 
     int shipCountInRow = (size.second - 2) / (ENEMY_WIDTH + 2);
     int shiCountInColumn = (size.first / 2);
@@ -27,13 +72,39 @@ App::App() {
     }
 }
 
-void App::updateEnemy() {
-    for(auto object: m_enemy) {
-        if(object->getDeadStatus()) {
-            m_collisionManager.removeObject(object);
-            m_mainScreen.removeBaseObject(object);
+void App::clearEnemy() {
+    for(const auto& object: m_enemy) {
+        m_collisionManager.removeObject(object);
+        m_mainScreen.removeBaseObject(object);
+    }
+
+    m_enemy.clear();
+}
+
+void App::updateGame() {
+    if(m_ball->collidesWith(m_gameOverLine.get())) {
+        m_livesCount--;
+    }
+
+    if(m_livesCount <= 0 || m_enemy.size() == 0) {
+        stopGame();
+    }
+
+    m_collisionManager.checkCollisions();
+
+    auto it = m_enemy.begin();
+    while(it != m_enemy.end()) {
+        if((*it)->getDeadStatus()) {
+            m_collisionManager.removeObject(*it);
+            m_mainScreen.removeBaseObject(*it);
+
+            it = m_enemy.erase(it);
+        } else {
+            ++it;
         }
     }
+
+    m_ball->updateMove();
 }
 
 int App::run() {
@@ -46,15 +117,11 @@ int App::run() {
 
         std::this_thread::sleep_for(100ms);
 
-        m_collisionManager.checkCollisions();
-
-        m_ball->updateMove();
+        updateGame();
 
         m_mainScreen.update();
 
         m_mainScreen.draw();
-
-        updateEnemy();
     }
 
     m_inputHandler.stop();
