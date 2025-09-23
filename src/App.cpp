@@ -67,7 +67,7 @@ void App::createEnemy() {
 
     for(int i = 5; i < shiCountInColumn; i += 3) {
         for(int j = 0; j < shipCountInRow; j++) {
-            m_enemy.push_back(objectFactory.createEnemy(j * (ENEMY_WIDTH + 2) + 3, i, 3));
+            m_enemy.push_back(objectFactory.createEnemy(j * (ENEMY_WIDTH + 2) + 3, i));
         }
     }
 }

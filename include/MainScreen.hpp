@@ -5,9 +5,16 @@
 
 #include <list>
 #include <memory>
+#include <string>
 #include <termios.h>
 #include <utility>
 #include <vector>
+
+struct Tile {
+    char color[6];
+    char symboll;
+    char reset[5];
+};
 
 class MainScreen {
 public:
@@ -34,7 +41,7 @@ private:
 
     std::list<std::shared_ptr<BaseObject>> m_objects;
 
-    std::vector<char> m_map;
+    std::vector<Tile> m_map;
 
     std::pair<int, int> m_size;
 };

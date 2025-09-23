@@ -1,12 +1,19 @@
 # Arcanoid
 
-Простая реализация игры arcanoid для систем на базе Linux на c++.
+A simple implementation of the arkanoid game for Linux-based systems in C++.
 
-p.s. Не готово полностью
+### Build
 
-### Сборка
-- cmake -B build 
+- cmake -B build
 - cmake --build build -j
 
-### Запуск
+### Start
+
 - ./build/game
+
+### Gameplay
+
+- a - move left
+- d - move right
+- w - start game
+- q - quit game

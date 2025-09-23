@@ -6,9 +6,11 @@
 #define ENEMY_WIDTH 10
 #define ENEMY_HEIGHT 2
 
+#define MAX_LEVEL 6
+
 class Enemy: public CollisionObject {
 public:
-    Enemy(int x, int y, int level);
+    Enemy(int x, int y);
 
     void makeHit();
 
@@ -16,6 +18,8 @@ public:
     void handleCollision(CollisionObject* object) override;
 
 private:
+    void updateColor();
+
     int m_level;
 };
 

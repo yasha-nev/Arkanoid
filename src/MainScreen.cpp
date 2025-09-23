@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <cstdio>
+#include <cstring>
 #include <unistd.h>
 
 MainScreen::MainScreen() {
@@ -37,9 +38,14 @@ MainScreen::~MainScreen() {
 void MainScreen::clear() {
     for(int i = 0; i < m_size.first; i++) {
         for(int j = 0; j < m_size.second; j++) {
-            m_map[i * m_size.second + j] = ' ';
+            memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * 6);
+            m_map[i * m_size.second + j].symboll = ' ';
+            memcpy(m_map[i * m_size.second + j].reset, RESET, sizeof(char) * 5);
         }
-        m_map[i * m_size.second + m_size.second - 1] = '\n';
+
+        memcpy(m_map[i * m_size.second + m_size.second - 1].color, WHITE, sizeof(char) * 6);
+        m_map[i * m_size.second + m_size.second - 1].symboll = '\n';
+        memcpy(m_map[i * m_size.second + m_size.second - 1].reset, RESET, sizeof(char) * 5);
     }
     printf("\033[H");
 }
@@ -49,7 +55,7 @@ std::pair<int, int> MainScreen::getScreenSize() {
 }
 
 void MainScreen::draw() {
-    write(STDOUT_FILENO, m_map.data(), m_map.size());
+    write(STDOUT_FILENO, m_map.data(), m_map.size() * sizeof(struct Tile));
 }
 
 void MainScreen::update() {
@@ -75,8 +81,36 @@ void MainScreen::drawObject(BaseObject* object) {
     auto drawSymbol = object->getDrawSymbol();
 
     for(int i = position->second; i < position->second + size->second && i < m_size.first; i++) {
-        for(int j = position->first; j < position->first + size->first && i < m_size.second; j++) {
-            m_map[i * m_size.second + j] = drawSymbol;
+        for(int j = position->first; j < (position->first + size->first) && j < m_size.second;
+            j++) {
+            switch(object->getColor()) {
+                case Color::DEFAULT:
+                    memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * 6);
+                    break;
+                case Color::RED_COLOR:
+                    memcpy(m_map[i * m_size.second + j].color, RED, sizeof(char) * 6);
+                    break;
+                case Color::GREEN_COLOR:
+                    memcpy(m_map[i * m_size.second + j].color, GREEN, sizeof(char) * 6);
+                    break;
+                case Color::BLUE_COLOR:
+                    memcpy(m_map[i * m_size.second + j].color, BLUE, sizeof(char) * 6);
+                    break;
+                case Color::YELLOW_COLOR:
+                    memcpy(m_map[i * m_size.second + j].color, YELLOW, sizeof(char) * 6);
+                    break;
+                case Color::CYAN_COLOR:
+                    memcpy(m_map[i * m_size.second + j].color, CYAN, sizeof(char) * 6);
+                    break;
+                case Color::PURPLE_COLOR:
+                    memcpy(m_map[i * m_size.second + j].color, PURPLE, sizeof(char) * 6);
+                    break;
+                default:
+                    memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * 6);
+                    break;
+            }
+            m_map[i * m_size.second + j].symboll = drawSymbol;
+            memcpy(m_map[i * m_size.second + j].reset, RESET, sizeof(char) * 5);
         }
     }
 }

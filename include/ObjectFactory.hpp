@@ -24,7 +24,7 @@ public:
 
     std::shared_ptr<Wall> createWall(int width, int height, int x, int y);
 
-    std::shared_ptr<Enemy> createEnemy(int x, int y, int speed);
+    std::shared_ptr<Enemy> createEnemy(int x, int y);
 
 private:
     InputHandler& m_inputHandler;
