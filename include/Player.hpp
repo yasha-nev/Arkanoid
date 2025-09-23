@@ -21,7 +21,7 @@ public:
     void onKeyPressed(int keyCode) override;
 
     // CollisionObject method
-    void handleCollision(CollisionObject* object) override;
+    void handleCollision(const CollisionObject* object) override;
 
 private:
     std::mutex m_mtx;

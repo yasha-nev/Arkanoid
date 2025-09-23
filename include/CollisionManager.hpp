@@ -11,7 +11,9 @@ public:
     ~CollisionManager();
 
     void addCollisionObject(const std::shared_ptr<CollisionObject>& object);
+
     void removeObject(const std::shared_ptr<CollisionObject>& object);
+
     void checkCollisions();
 
 private:

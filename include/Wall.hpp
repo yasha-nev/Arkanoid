@@ -8,7 +8,7 @@ public:
     Wall(int width, int height, int x, int y);
 
     // CollisionObject method
-    void handleCollision(CollisionObject* object) override;
+    void handleCollision(const CollisionObject* object) override;
 };
 
 #endif

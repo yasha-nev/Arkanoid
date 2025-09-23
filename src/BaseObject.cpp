@@ -15,12 +15,12 @@ BaseObject::BaseObject(int width, int height, int x, int y, char drawSymbol) {
     m_drawSymbol = drawSymbol;
 }
 
-std::pair<int, int>* BaseObject::getSize() {
-    return &m_size;
+std::pair<int, int> BaseObject::getSize() const {
+    return m_size;
 }
 
-std::pair<int, int>* BaseObject::getPosition() {
-    return &m_position;
+std::pair<int, int> BaseObject::getPosition() const {
+    return m_position;
 }
 
 char BaseObject::getDrawSymbol() {

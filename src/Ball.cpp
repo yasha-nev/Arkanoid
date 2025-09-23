@@ -46,9 +46,9 @@ void Ball::setDefaultPosition() {
     m_lastPosY = m_defaultPosY - 1;
 }
 
-void Ball::handleCollision(CollisionObject* obj) {
-    auto [ox, oy] = *obj->getPosition();
-    auto [ow, oh] = *obj->getSize();
+void Ball::handleCollision(const CollisionObject* obj) {
+    auto [ox, oy] = obj->getPosition();
+    auto [ow, oh] = obj->getSize();
 
     if(m_position.first >= ox && m_position.first <= ox + ow && m_position.second >= oy &&
        m_position.second <= oy + oh) {

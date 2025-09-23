@@ -9,9 +9,9 @@ public:
 
     virtual ~CollisionObject() = default;
 
-    bool collidesWith(const CollisionObject* other) const;
+    virtual void handleCollision(const CollisionObject* object) = 0;
 
-    virtual void handleCollision(CollisionObject* object) = 0;
+    bool collidesWith(const CollisionObject* other) const;
 };
 
 #endif

@@ -13,9 +13,9 @@ public:
 
     virtual ~BaseObject() = default;
 
-    std::pair<int, int>* getSize();
+    std::pair<int, int> getSize() const;
 
-    std::pair<int, int>* getPosition();
+    std::pair<int, int> getPosition() const;
 
     char getDrawSymbol();
 
@@ -33,9 +33,13 @@ public:
 
 protected:
     Color m_color;
+
     bool m_isDead;
+
     std::pair<int, int> m_size;
+
     std::pair<int, int> m_position;
+
     char m_drawSymbol;
 };
 

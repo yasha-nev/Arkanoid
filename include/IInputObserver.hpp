@@ -4,6 +4,7 @@
 class IInputObserver {
 public:
     virtual ~IInputObserver() = default;
+
     virtual void onKeyPressed(int keyCode) = 0;
 };
 

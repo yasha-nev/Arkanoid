@@ -1,6 +1,9 @@
 #ifndef COLORS_hpp
 #define COLORS_hpp
 
+#define COLOR_SIZE 6
+#define RESET_SIZE 5
+
 const char RESET[] = "\x1B[0m";
 const char WHITE[] = "\x1B[37m";
 const char RED[] = "\x1B[31m";

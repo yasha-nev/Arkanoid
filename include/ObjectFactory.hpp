@@ -28,7 +28,9 @@ public:
 
 private:
     InputHandler& m_inputHandler;
+
     CollisionManager& m_collisionManager;
+
     MainScreen& m_mainScreen;
 };
 

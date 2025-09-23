@@ -23,7 +23,7 @@ void Enemy::makeHit() {
     }
 }
 
-void Enemy::handleCollision(CollisionObject* object) {
+void Enemy::handleCollision(const CollisionObject* object) {
     (void) object;
     makeHit();
 }

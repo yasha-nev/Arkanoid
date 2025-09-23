@@ -22,7 +22,7 @@ public:
     void setDefaultPosition();
 
     // CollisionObject method
-    void handleCollision(CollisionObject* object) override;
+    void handleCollision(const CollisionObject* object) override;
 
 private:
     bool m_isMoved;

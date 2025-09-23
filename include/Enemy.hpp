@@ -15,7 +15,7 @@ public:
     void makeHit();
 
     // CollisionObject method
-    void handleCollision(CollisionObject* object) override;
+    void handleCollision(const CollisionObject* object) override;
 
 private:
     void updateColor();

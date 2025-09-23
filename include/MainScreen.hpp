@@ -37,7 +37,7 @@ public:
 private:
     void drawObject(BaseObject* object);
 
-    struct termios oldt;
+    struct termios m_oldt;
 
     std::list<std::shared_ptr<BaseObject>> m_objects;
 

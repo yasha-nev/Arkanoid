@@ -10,8 +10,8 @@
 MainScreen::MainScreen() {
     struct termios newt;
 
-    tcgetattr(STDIN_FILENO, &oldt);
-    newt = oldt;
+    tcgetattr(STDIN_FILENO, &m_oldt);
+    newt = m_oldt;
 
     newt.c_lflag &= ~(ICANON | ECHO);
     tcsetattr(STDIN_FILENO, TCSANOW, &newt);
@@ -29,7 +29,7 @@ MainScreen::MainScreen() {
 
 MainScreen::~MainScreen() {
     printf("\033[?25h");
-    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    tcsetattr(STDIN_FILENO, TCSANOW, &m_oldt);
     printf("\033[H");
 
     m_objects.clear();
@@ -38,14 +38,16 @@ MainScreen::~MainScreen() {
 void MainScreen::clear() {
     for(int i = 0; i < m_size.first; i++) {
         for(int j = 0; j < m_size.second; j++) {
-            memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * 6);
+            memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * COLOR_SIZE);
             m_map[i * m_size.second + j].symboll = ' ';
-            memcpy(m_map[i * m_size.second + j].reset, RESET, sizeof(char) * 5);
+            memcpy(m_map[i * m_size.second + j].reset, RESET, sizeof(char) * RESET_SIZE);
         }
 
-        memcpy(m_map[i * m_size.second + m_size.second - 1].color, WHITE, sizeof(char) * 6);
+        memcpy(
+            m_map[i * m_size.second + m_size.second - 1].color, WHITE, sizeof(char) * COLOR_SIZE);
         m_map[i * m_size.second + m_size.second - 1].symboll = '\n';
-        memcpy(m_map[i * m_size.second + m_size.second - 1].reset, RESET, sizeof(char) * 5);
+        memcpy(
+            m_map[i * m_size.second + m_size.second - 1].reset, RESET, sizeof(char) * RESET_SIZE);
     }
     printf("\033[H");
 }
@@ -80,37 +82,36 @@ void MainScreen::drawObject(BaseObject* object) {
     auto size = object->getSize();
     auto drawSymbol = object->getDrawSymbol();
 
-    for(int i = position->second; i < position->second + size->second && i < m_size.first; i++) {
-        for(int j = position->first; j < (position->first + size->first) && j < m_size.second;
-            j++) {
+    for(int i = position.second; i < position.second + size.second && i < m_size.first; i++) {
+        for(int j = position.first; j < (position.first + size.first) && j < m_size.second; j++) {
             switch(object->getColor()) {
                 case Color::DEFAULT:
-                    memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * 6);
+                    memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * COLOR_SIZE);
                     break;
                 case Color::RED_COLOR:
-                    memcpy(m_map[i * m_size.second + j].color, RED, sizeof(char) * 6);
+                    memcpy(m_map[i * m_size.second + j].color, RED, sizeof(char) * COLOR_SIZE);
                     break;
                 case Color::GREEN_COLOR:
-                    memcpy(m_map[i * m_size.second + j].color, GREEN, sizeof(char) * 6);
+                    memcpy(m_map[i * m_size.second + j].color, GREEN, sizeof(char) * COLOR_SIZE);
                     break;
                 case Color::BLUE_COLOR:
-                    memcpy(m_map[i * m_size.second + j].color, BLUE, sizeof(char) * 6);
+                    memcpy(m_map[i * m_size.second + j].color, BLUE, sizeof(char) * COLOR_SIZE);
                     break;
                 case Color::YELLOW_COLOR:
-                    memcpy(m_map[i * m_size.second + j].color, YELLOW, sizeof(char) * 6);
+                    memcpy(m_map[i * m_size.second + j].color, YELLOW, sizeof(char) * COLOR_SIZE);
                     break;
                 case Color::CYAN_COLOR:
-                    memcpy(m_map[i * m_size.second + j].color, CYAN, sizeof(char) * 6);
+                    memcpy(m_map[i * m_size.second + j].color, CYAN, sizeof(char) * COLOR_SIZE);
                     break;
                 case Color::PURPLE_COLOR:
-                    memcpy(m_map[i * m_size.second + j].color, PURPLE, sizeof(char) * 6);
+                    memcpy(m_map[i * m_size.second + j].color, PURPLE, sizeof(char) * COLOR_SIZE);
                     break;
                 default:
-                    memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * 6);
+                    memcpy(m_map[i * m_size.second + j].color, WHITE, sizeof(char) * COLOR_SIZE);
                     break;
             }
             m_map[i * m_size.second + j].symboll = drawSymbol;
-            memcpy(m_map[i * m_size.second + j].reset, RESET, sizeof(char) * 5);
+            memcpy(m_map[i * m_size.second + j].reset, RESET, sizeof(char) * RESET_SIZE);
         }
     }
 }

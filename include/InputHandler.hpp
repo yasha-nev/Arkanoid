@@ -31,17 +31,17 @@ public:
     void unsubscribeAll();
 
 private:
-    std::mutex m_mtx;
-
-    std::thread m_thread;
-
-    std::list<std::shared_ptr<IInputObserver>> m_observers;
-
     void listenForEvents();
 
     void processKeyEvent(int keyCode);
 
     void notifyObservers(int keyCode);
+
+    std::mutex m_mtx;
+
+    std::thread m_thread;
+
+    std::list<std::shared_ptr<IInputObserver>> m_observers;
 };
 
 #endif
