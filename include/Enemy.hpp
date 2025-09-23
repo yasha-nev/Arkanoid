@@ -10,7 +10,7 @@
 
 class Enemy: public CollisionObject {
 public:
-    Enemy(int x, int y);
+    Enemy(int x, int y, int level);
 
     void makeHit();
 

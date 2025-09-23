@@ -14,7 +14,7 @@ App::App():
 
     auto size = m_mainScreen.getScreenSize();
 
-    m_ball = objectFactory.createBall(size.second / 2, size.first - 5);
+    m_ball = objectFactory.createBall(size.second / 2, size.first - 3);
     m_player = objectFactory.createPlayer(size.second / 2, size.first - 2);
 
     m_gameOverLine = objectFactory.createWall(size.second - 1, 1, 0, size.first - 1);
@@ -62,13 +62,21 @@ void App::createEnemy() {
 
     auto size = m_mainScreen.getScreenSize();
 
-    int shipCountInRow = (size.second - 2) / (ENEMY_WIDTH + 2);
-    int shiCountInColumn = (size.first / 2);
+    int enemiesInRow = (size.second - 10) / ENEMY_WIDTH;
 
-    for(int i = 5; i < shiCountInColumn; i += 3) {
-        for(int j = 0; j < shipCountInRow; j++) {
-            m_enemy.push_back(objectFactory.createEnemy(j * (ENEMY_WIDTH + 2) + 3, i));
+    int rowsOfEnemies = MAX_LEVEL;
+
+    int topMargin = 10;
+
+    int currentY = size.first - topMargin - ENEMY_HEIGHT;
+
+    for(int level = 1; level <= rowsOfEnemies; ++level) {
+        for(int col = 0; col < enemiesInRow; ++col) {
+            int x = 5 + col * ENEMY_WIDTH;
+            m_enemy.push_back(objectFactory.createEnemy(x, currentY, level));
         }
+
+        currentY -= (ENEMY_HEIGHT + 1);
     }
 }
 

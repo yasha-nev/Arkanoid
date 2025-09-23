@@ -1,8 +1,8 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy(int x, int y):
-    CollisionObject(ENEMY_WIDTH, ENEMY_HEIGHT, x, y, '0' + MAX_LEVEL),
-    m_level(MAX_LEVEL) {
+Enemy::Enemy(int x, int y, int level):
+    CollisionObject(ENEMY_WIDTH, ENEMY_HEIGHT, x, y, '0' + level),
+    m_level(level) {
     updateColor();
 }
 
@@ -34,12 +34,12 @@ void Enemy::updateColor() {
     } else if(m_level >= MAX_LEVEL - 1) {
         setColor(Color::YELLOW_COLOR);
     } else if(m_level >= MAX_LEVEL - 2) {
-        setColor(Color::GREEN_COLOR);
-    } else if(m_level >= MAX_LEVEL - 3) {
-        setColor(Color::CYAN_COLOR);
-    } else if(m_level >= MAX_LEVEL - 4) {
         setColor(Color::BLUE_COLOR);
-    } else {
+    } else if(m_level >= MAX_LEVEL - 3) {
         setColor(Color::PURPLE_COLOR);
+    } else if(m_level >= MAX_LEVEL - 4) {
+        setColor(Color::GREEN_COLOR);
+    } else {
+        setColor(Color::CYAN_COLOR);
     }
 }

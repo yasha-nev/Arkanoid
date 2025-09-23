@@ -6,7 +6,7 @@
 
 #include <mutex>
 
-#define PLAYER_DEFAULT_WIDTH 20
+#define PLAYER_DEFAULT_WIDTH 15
 #define PLAYER_DEFAULT_HEIGHT 1
 
 class Player: public CollisionObject, public IInputObserver {

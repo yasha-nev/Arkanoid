@@ -31,8 +31,8 @@ std::shared_ptr<Wall> ObjectFactory::createWall(int width, int height, int x, in
     return wall;
 }
 
-std::shared_ptr<Enemy> ObjectFactory::createEnemy(int x, int y) {
-    auto enemy = std::make_shared<Enemy>(x, y);
+std::shared_ptr<Enemy> ObjectFactory::createEnemy(int x, int y, int level) {
+    auto enemy = std::make_shared<Enemy>(x, y, level);
     m_mainScreen.addBaseObject(enemy);
     m_collisionManager.addCollisionObject(enemy);
     return enemy;
