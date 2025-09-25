@@ -4,7 +4,7 @@
 #include "CollisionObject.hpp"
 
 #include <memory>
-#include <vector>
+#include <list>
 
 class CollisionManager {
 public:
@@ -17,7 +17,7 @@ public:
     void checkCollisions();
 
 private:
-    std::vector<std::shared_ptr<CollisionObject>> m_objects;
+    std::list<std::shared_ptr<CollisionObject>> m_objects;
 };
 
 #endif

@@ -90,7 +90,7 @@ void App::clearEnemy() {
 }
 
 void App::updateGame() {
-    if(m_ball->collidesWith(m_gameOverLine.get())) {
+    if(m_ball->collidesWith(m_gameOverLine)) {
         m_livesCount--;
     }
 

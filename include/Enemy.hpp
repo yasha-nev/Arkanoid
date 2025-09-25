@@ -15,7 +15,7 @@ public:
     void makeHit();
 
     // CollisionObject method
-    void handleCollision(const CollisionObject* object) override;
+    void handleCollision(const std::shared_ptr<CollisionObject> &object) override;
 
 private:
     void updateColor();

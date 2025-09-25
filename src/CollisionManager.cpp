@@ -19,12 +19,16 @@ void CollisionManager::removeObject(const std::shared_ptr<CollisionObject>& obje
 }
 
 void CollisionManager::checkCollisions() {
-    size_t n = m_objects.size();
-    for(size_t i = 0; i < n; ++i) {
-        for(size_t j = i + 1; j < n; ++j) {
-            if(m_objects[i]->collidesWith(m_objects[j].get())) {
-                m_objects[i]->handleCollision(m_objects[j].get());
-                m_objects[j]->handleCollision(m_objects[i].get());
+
+    auto begin = m_objects.cbegin();
+    auto end = m_objects.cend();
+
+    for (auto iti = begin; iti != end; iti++) {
+        auto nextIt = std::next(iti);
+        for (auto itj = nextIt; itj != end; itj++) {
+            if ((*iti)->collidesWith(*itj)) {
+                (*iti)->handleCollision(*itj);
+                (*itj)->handleCollision(*iti);
             }
         }
     }

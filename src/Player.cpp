@@ -30,6 +30,6 @@ void Player::onKeyPressed(int keyCode) {
     }
 }
 
-void Player::handleCollision(const CollisionObject* object) {
+void Player::handleCollision(const std::shared_ptr<CollisionObject> &object) {
     (void) object;
 }

@@ -46,7 +46,7 @@ void Ball::setDefaultPosition() {
     m_lastPosY = m_defaultPosY - 1;
 }
 
-void Ball::handleCollision(const CollisionObject* obj) {
+void Ball::handleCollision(const std::shared_ptr<CollisionObject> &obj) {
     auto [ox, oy] = obj->getPosition();
     auto [ow, oh] = obj->getSize();
 

@@ -2,6 +2,7 @@
 #define COLLISIONOBJECT_hpp
 
 #include "BaseObject.hpp"
+#include <memory>
 
 class CollisionObject: public BaseObject {
 public:
@@ -9,9 +10,9 @@ public:
 
     virtual ~CollisionObject() = default;
 
-    virtual void handleCollision(const CollisionObject* object) = 0;
+    virtual void handleCollision(const std::shared_ptr<CollisionObject> &object) = 0;
 
-    bool collidesWith(const CollisionObject* other) const;
+    bool collidesWith(const std::shared_ptr<CollisionObject> &other) const;
 };
 
 #endif
