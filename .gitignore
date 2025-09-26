@@ -51,5 +51,9 @@ CMakeUserPresets.json
 # External projects
 *-prefix/
 
-# Vscode
+### Vscode ###
 .vscode
+
+### Doxygen ###
+html
+latex
