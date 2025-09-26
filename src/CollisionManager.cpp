@@ -23,10 +23,10 @@ void CollisionManager::checkCollisions() {
     auto begin = m_objects.cbegin();
     auto end = m_objects.cend();
 
-    for (auto iti = begin; iti != end; iti++) {
+    for(auto iti = begin; iti != end; iti++) {
         auto nextIt = std::next(iti);
-        for (auto itj = nextIt; itj != end; itj++) {
-            if ((*iti)->collidesWith(*itj)) {
+        for(auto itj = nextIt; itj != end; itj++) {
+            if((*iti)->collidesWith(*itj)) {
                 (*iti)->handleCollision(*itj);
                 (*itj)->handleCollision(*iti);
             }

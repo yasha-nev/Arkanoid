@@ -23,7 +23,7 @@ void Enemy::makeHit() {
     }
 }
 
-void Enemy::handleCollision(const std::shared_ptr<CollisionObject> &object) {
+void Enemy::handleCollision(const std::shared_ptr<CollisionObject>& object) {
     (void) object;
     makeHit();
 }

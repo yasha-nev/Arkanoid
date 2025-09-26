@@ -2,12 +2,14 @@
 #define COLLISIONOBJECT_hpp
 
 #include "BaseObject.hpp"
+
 #include <memory>
 
 /**
  * @brief Represents a collidable entity within the game world.
  *
- * Extends BaseObject to provide additional functionality related to collision detection and interaction behavior.
+ * Extends BaseObject to provide additional functionality related to collision detection and
+ * interaction behavior.
  */
 class CollisionObject: public BaseObject {
 public:
@@ -34,7 +36,7 @@ public:
      *
      * @param object Pointer to the object involved in the collision.
      */
-    virtual void handleCollision(const std::shared_ptr<CollisionObject> &object) = 0;
+    virtual void handleCollision(const std::shared_ptr<CollisionObject>& object) = 0;
 
     /**
      * @brief Determines if there is overlap with another collision object.
@@ -44,7 +46,7 @@ public:
      * @param other Shared pointer to the second object being tested against.
      * @return True if overlapping, false otherwise.
      */
-    bool collidesWith(const std::shared_ptr<CollisionObject> &other) const;
+    bool collidesWith(const std::shared_ptr<CollisionObject>& other) const;
 };
 
 #endif // COLLISIONOBJECT_hpp

@@ -10,7 +10,6 @@
  */
 class Wall: public CollisionObject {
 public:
-
     /**
      * @brief Constructor accepting initial dimensions and position.
      *
@@ -28,7 +27,7 @@ public:
      *
      * @param object Reference to the colliding object.
      */
-    void handleCollision(const std::shared_ptr<CollisionObject> &object) override;
+    void handleCollision(const std::shared_ptr<CollisionObject>& object) override;
 };
 
 #endif // WALL_hpp

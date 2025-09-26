@@ -48,7 +48,7 @@ public:
      */
     void stop();
 
-     /**
+    /**
      * @brief Registers an observer interested in key press events.
      *
      * Ensures the observer receives notifications about key presses.

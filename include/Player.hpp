@@ -12,7 +12,8 @@
 /**
  * @brief Represents the player's controllable avatar in the game.
  *
- * Inherits collision capabilities and implements input observation to respond dynamically to user actions.
+ * Inherits collision capabilities and implements input observation to respond dynamically to user
+ * actions.
  */
 class Player: public CollisionObject, public IInputObserver {
 public:
@@ -56,7 +57,7 @@ public:
      *
      * @param object Reference to the colliding object.
      */
-    void handleCollision(const std::shared_ptr<CollisionObject> &object) override;
+    void handleCollision(const std::shared_ptr<CollisionObject>& object) override;
 
 private:
     /**

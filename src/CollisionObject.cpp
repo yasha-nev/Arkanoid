@@ -4,7 +4,7 @@ CollisionObject::CollisionObject(int width, int height, int x, int y, char symbo
     BaseObject(width, height, x, y, symbol) {
 }
 
-bool CollisionObject::collidesWith(const std::shared_ptr<CollisionObject> &other) const {
+bool CollisionObject::collidesWith(const std::shared_ptr<CollisionObject>& other) const {
     return (
         m_position.first > other->m_position.first - 1 &&
         m_position.first < other->m_position.first + other->m_size.first + 1 &&

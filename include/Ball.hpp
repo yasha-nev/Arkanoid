@@ -12,7 +12,8 @@
 /**
  * @brief Represents the bouncing ball object in the game.
  *
- * Inheriting from CollisionObject allows participation in collision detection and provides motion behavior.
+ * Inheriting from CollisionObject allows participation in collision detection and provides motion
+ * behavior.
  */
 class Ball: public CollisionObject {
 public:
@@ -59,7 +60,7 @@ public:
      *
      * @param object Reference to the colliding object.
      */
-    void handleCollision(const std::shared_ptr<CollisionObject> &object) override;
+    void handleCollision(const std::shared_ptr<CollisionObject>& object) override;
 
 private:
     /**
@@ -71,7 +72,7 @@ private:
      * @brief Last known X-position of the ball.
      */
     int m_lastPosX;
-    
+
     /**
      * @brief Last known Y-position of the ball.
      */
@@ -81,7 +82,7 @@ private:
      * @brief Default X-position where the ball begins or returns to.
      */
     int m_defaultPosX;
-    
+
     /**
      * @brief Default Y-position where the ball begins or returns to.
      */

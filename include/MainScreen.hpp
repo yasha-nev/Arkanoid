@@ -17,7 +17,7 @@
  */
 struct Tile {
     char color[6]; ///< ASCII escape sequence for coloring the tile.
-    char symboll; ///< Character displayed on the tile.
+    char symboll;  ///< Character displayed on the tile.
     char reset[5]; ///< Sequence to restore normal color after drawing.
 };
 

@@ -3,13 +3,14 @@
 
 #include "CollisionObject.hpp"
 
-#include <memory>
 #include <list>
+#include <memory>
 
 /**
  * @brief Central manager for detecting and responding to collisions between game objects.
  *
- * Keeps track of all collidable objects and performs pairwise collision tests during each iteration.
+ * Keeps track of all collidable objects and performs pairwise collision tests during each
+ * iteration.
  */
 class CollisionManager {
 public:
@@ -50,4 +51,4 @@ private:
     std::list<std::shared_ptr<CollisionObject>> m_objects;
 };
 
-#endif //COLLISIONMANAGER_hpp
+#endif // COLLISIONMANAGER_hpp

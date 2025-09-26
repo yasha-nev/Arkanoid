@@ -21,7 +21,6 @@
  */
 class App {
 public:
-
     /**
      * @brief Default constructor initializing internal state.
      *
@@ -39,7 +38,6 @@ public:
     int run();
 
 private:
-
     /**
      * @brief Creates enemy objects within the game world.
      *
@@ -54,7 +52,7 @@ private:
 
     /**
      * @brief Updates the current game state.
-     * 
+     *
      * Processes movement, collision checks, removes destroyed enemies
      */
     void updateGame();
@@ -78,7 +76,7 @@ private:
     /** Manager object handling collision detections between game entities. */
     CollisionManager m_collisionManager;
 
-     /** Handler for processing keyboard inputs. */
+    /** Handler for processing keyboard inputs. */
     InputHandler m_inputHandler;
 
     /** Main graphical interface displaying the game's visual elements. */

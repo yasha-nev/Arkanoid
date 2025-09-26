@@ -38,7 +38,7 @@ public:
      *
      * @param object Reference to the colliding object.
      */
-    void handleCollision(const std::shared_ptr<CollisionObject> &object) override;
+    void handleCollision(const std::shared_ptr<CollisionObject>& object) override;
 
 private:
     /**
