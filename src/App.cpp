@@ -77,6 +77,10 @@ void App::createEnemy() {
         }
 
         currentY -= (ENEMY_HEIGHT + 1);
+
+        if (currentY <= 0) {
+            break;
+        }
     }
 }
 
