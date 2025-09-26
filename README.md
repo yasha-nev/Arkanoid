@@ -1,19 +1,41 @@
-# Arcanoid
+# Arkanoid 🎮
 
-A simple implementation of the arkanoid game for Linux-based systems in C++.
+Arkanoid is a simple terminal-based brick-breaking game for Linux systems, implemented in modern C++.
 
-### Build
+![Game Screenshot](screenshots/Screenshot.png)
 
-- cmake -B build
-- cmake --build build -j
+## Features
 
-### Start
+- Support for CMAKE and C++11
+- Smooth rendering of objects in the terminal
+- Colorful design
+- Simple controls
 
-- ./build/game
+## Building Instructions
 
-### Gameplay
+### 1) Clone the repository from GitHub
 
-- a - move left
-- d - move right
-- w - start game
-- q - quit game
+```
+git@github.com:yasha-nev/Arkanoid.git
+cd Arkanoid
+```
+
+### 2) Build project
+
+```
+cmake -B build
+cmake --build build -j
+```
+
+### 3) Run the game
+
+```
+./build/game
+```
+
+## Controls
+
+- Move paddle left: **a**
+- Move paddle right: **d**
+- Start game: **w**
+- Quit game: **q**
