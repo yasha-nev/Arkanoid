@@ -38,35 +38,35 @@ public:
      *
      * @return Pair containing width and height.
      */
-    std::pair<int, int> getSize() const;
+    std::pair<int, int> getSize() const noexcept;
 
     /**
      * @brief Obtains the current position coordinates (X,Y) top-left corner of the object.
      *
      * @return Pair holding the X and Y positions.
      */
-    std::pair<int, int> getPosition() const;
+    std::pair<int, int> getPosition() const noexcept;
 
     /**
      * @brief Gets the character symbol used to represent the object graphically.
      *
      * @return Symbol drawn on-screen.
      */
-    char getDrawSymbol();
+    char getDrawSymbol() const noexcept;
 
     /**
      * @brief Checks if the object is marked as dead/deleted.
      *
      * @return True if the object should be considered inactive/dead.
      */
-    bool getDeadStatus();
+    bool getDeadStatus() const noexcept;
 
     /**
      * @brief Returns the assigned color attribute of the object.
      *
      * @return Current color setting.
      */
-    Color getColor();
+    Color getColor() const noexcept;
 
     /**
      * @brief Resets the object's position based on provided X and Y values.
@@ -74,28 +74,28 @@ public:
      * @param x New horizontal coordinate.
      * @param y New vertical coordinate.
      */
-    void setPosition(int x, int y);
+    void setPosition(int x, int y) noexcept;
 
     /**
      * @brief Changes the object's position via a pair of coordinates.
      *
      * @param position Pair specifying both X and Y coordinates.
      */
-    void setPosition(const std::pair<int, int>& position);
+    void setPosition(const std::pair<int, int>& position) noexcept;
 
     /**
      * @brief Assigns a new graphic representation symbol for the object.
      *
      * @param drawSymbol New display character.
      */
-    void setDrawSymbol(char drawSymbol);
+    void setDrawSymbol(char drawSymbol) noexcept;
 
     /**
      * @brief Alters the color property of the object.
      *
      * @param color New color assignment.
      */
-    void setColor(Color color);
+    void setColor(Color color) noexcept;
 
 protected:
     /**

@@ -2,5 +2,10 @@
 #include <iostream>
 
 int main() {
-    return App().run();
+    try {
+        App().run();
+    } catch(const std::exception& ex) {
+        std::cerr << "Error " << ex.what() << "\n";
+    }
+    return 0;
 }

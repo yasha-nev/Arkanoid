@@ -29,7 +29,7 @@ public:
     /**
      * @brief Life loss after contact
      */
-    void makeHit();
+    void makeHit() noexcept;
 
     /**
      * @brief Handles collision events triggered by other game objects.

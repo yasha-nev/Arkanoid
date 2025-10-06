@@ -6,7 +6,7 @@ Enemy::Enemy(int x, int y, int level):
     updateColor();
 }
 
-void Enemy::makeHit() {
+void Enemy::makeHit() noexcept {
     if(m_level <= 0) {
         return;
     }

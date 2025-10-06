@@ -15,40 +15,40 @@ BaseObject::BaseObject(int width, int height, int x, int y, char drawSymbol) {
     m_drawSymbol = drawSymbol;
 }
 
-std::pair<int, int> BaseObject::getSize() const {
+std::pair<int, int> BaseObject::getSize() const noexcept {
     return m_size;
 }
 
-std::pair<int, int> BaseObject::getPosition() const {
+std::pair<int, int> BaseObject::getPosition() const noexcept {
     return m_position;
 }
 
-char BaseObject::getDrawSymbol() {
+char BaseObject::getDrawSymbol() const noexcept {
     return m_drawSymbol;
 }
 
-bool BaseObject::getDeadStatus() {
+bool BaseObject::getDeadStatus() const noexcept {
     return m_isDead;
 }
 
-Color BaseObject::getColor() {
+Color BaseObject::getColor() const noexcept {
     return m_color;
 }
 
-void BaseObject::setPosition(int x, int y) {
+void BaseObject::setPosition(int x, int y) noexcept {
     m_position.first = x;
     m_position.second = y;
 }
 
-void BaseObject::setPosition(const std::pair<int, int>& position) {
+void BaseObject::setPosition(const std::pair<int, int>& position) noexcept {
     m_position.first = position.first;
     m_position.second = position.second;
 }
 
-void BaseObject::setDrawSymbol(char drawSymbol) {
+void BaseObject::setDrawSymbol(char drawSymbol) noexcept {
     m_drawSymbol = drawSymbol;
 }
 
-void BaseObject::setColor(Color color) {
+void BaseObject::setColor(Color color) noexcept {
     m_color = color;
 }
