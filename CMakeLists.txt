@@ -5,11 +5,12 @@ project(arkanoid VERSION 1.0)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 include_directories(
-    include 
+    include
     src
 )
 
 set(SRCS
+    main.cpp
     src/App.cpp
     src/Ball.cpp
     src/BaseObject.cpp
@@ -46,8 +47,4 @@ add_compile_options(
     -Wextra
 )
 
-add_library(arkanoid STATIC ${SRCS} ${HEADERS})
-
-add_executable(game main.cpp)
-
-target_link_libraries(game arkanoid)
+add_executable(arkanoid ${SRCS} ${HEADERS})

@@ -6,7 +6,7 @@ Arkanoid is a simple terminal-based brick-breaking game for Linux systems, imple
 
 ## Features
 
-- Support for CMAKE and C++11
+- Support for CMAKE and C++17
 - Smooth rendering of objects in the terminal
 - Colorful design
 - Simple controls
@@ -30,7 +30,7 @@ cmake --build build -j
 ### 3) Run the game
 
 ```
-./build/game
+./build/arkanoid
 ```
 
 ## Controls
